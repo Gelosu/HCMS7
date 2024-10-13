@@ -1,0 +1,1866 @@
+
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+            background-color: #FFFFEE;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            opacity: 0.05;
+            background: url('mary.jpg') center/45% no-repeat; /* Adjust the image path and scaling */
+        }
+
+        header {
+            background-color: #368533;
+            color: #f3efef;
+            text-align: left;
+            padding: 10px;
+            height: 40px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            
+        }
+
+        header h1 {
+            font-size: 25px; /* Set the text size to 10px */
+            margin: 1; /* Remove default margin for h1 */
+        }
+
+        footer {
+            background-color: #368533;
+            color: rgb(255, 255, 255);
+            text-align: center; /* Horizontally center the text */
+            padding: 8px; /* Padding for some vertical spacing */
+            height: 24px; /* Adjust height if necessary */
+            position: fixed;
+            bottom: 0; /* Fix it to the bottom of the viewport */
+            width: 100%; /* Make the footer span the entire width */
+            left: 0; /* Ensure it aligns to the left edge */
+            margin-bottom: 0px;
+            margin-left: 100px;
+            
+        }
+        
+        
+
+        /* Sidebar Styles */
+        #sidebar {
+            position: fixed;
+            left: 0;
+            top: 60px;
+            bottom: 0;
+            width: 200px;
+            background-color: #368533;
+            padding-top: 20px;
+            overflow-y: auto;
+        }
+
+        #sidebar ul li :hover{
+            background-color: #368533;
+        }
+        /* Main Content Styles */
+        #main-content {
+            margin-left: 200px; /* Adjusted to match the width of the sidebar */
+            padding: 20px;
+            display: flex; /* Use flexbox to position the table beside the sidebar */
+        }
+
+       /* Table Container Styles for scrollable table */
+.table-container {
+    max-height: 320px; /* Set the height based on your preference (e.g., around 10 rows) */
+    overflow-y: auto;  /* Enable vertical scrolling when content exceeds the container height */
+           /* Keep the width consistent with your table */
+    margin-left: 1px;  /* Adjust the margin as needed */
+}
+
+
+table {
+    width: 77%;       /* Ensure the table fits the full width of the container */
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+    padding: 5px;     /* Adjusted padding for cells */
+    border: 1px solid #000000;
+    font-size: 14px;
+}
+
+table th {
+    background-color: #368533;
+}
+
+table tr:nth-child(even) {
+    background-color: #fcfffd;
+}
+table tr:nth-child(odd) {
+    background-color: #fcfffd;
+}
+
+
+table tr:hover {
+    background-color: #bff0c8;
+}
+
+
+        .add-button-container {
+            text-align: left;
+            margin-top: 1px;
+            margin-left: 10px;
+            margin-right: 225px;
+        }
+        
+        .add-button-container button {
+            background-color: #368533;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .add-button-container button:hover {
+            background-color: #2d6e2a;
+        }
+        
+        /* Search and Add Container */
+        .search-and-add-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .search-container {
+            flex: 1;
+        }
+        
+        #searchInput {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            width: 97%;
+        }
+
+
+
+
+        /* CSS for the modal */
+        /* Modal container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* Center the modal */
+    padding: 10px; /* Add spacing inside the modal */
+    border: 1px solid #000000;
+    width: 30%; /* Adjust width as needed */
+    max-width: 800px; /* Maximum width for larger screens */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for a subtle effect */
+}
+
+
+.modal2 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content2 {
+    background-color: #fefefe;
+    margin: 5% auto; /* Center the modal */
+    padding: 10px; /* Add spacing inside the modal */
+    border: 1px solid #000000;
+    width: 30%; /* Adjust width as needed */
+    max-width: 800px; /* Maximum width for larger screens */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for a subtle effect */
+}
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            justify-content: space-between;
+        }
+
+        label {
+            margin-bottom: 1px;
+            text-align: center;
+        }
+
+        input {
+            padding: 1px;
+            border: 1px solid #000000;
+            border-radius: 4px;
+        }
+
+        input[type="text"]{
+            width: 80%;
+            padding:5px 3px;
+            margin-left: 50px;
+            margin-bottom: -25px;
+            margin-top: 15px;
+           
+        }
+        input[type="number"]{
+            width: 80%;
+            padding:5px 3px;
+            margin-left: 50px;
+            
+           
+        }
+
+        input[type="datetime-local"]
+        {
+            width: 80%;
+            height: 100%;
+            padding:3px 5px;
+            margin-left: 50px;
+            margin-top: 100px;
+            margin-bottom: 25px;
+
+
+        }
+
+        input[type="submit"] {
+            background-color: #368533;
+    color: white;
+    padding: 10px 20px; /* Adjust padding to increase or decrease space inside the button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px; /* Set the width of the button */
+    height: 40px; /* Set the height of the button */
+    text-align: center; /* Center the text horizontally */
+    font-size: 14px; /* Adjust font size as needed */
+    margin-left: 130px;
+    margin-top: 50px;
+    
+    
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2d6e2a;
+        }
+
+        label input {
+            margin-right: 4px;
+        }
+        select {
+           
+    padding: 3px 3px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 80%; 
+    text-align: center;
+    margin-left: 50px;
+}
+    
+
+         
+
+        .modal-appointment {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+        }
+
+
+
+
+
+/* Delete Button */
+.delete-btn2 {
+    background-color: #f44336; /* Red background */
+    color: white; /* White text color */
+    border: none;
+    padding: 6px 12px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px; /* Space between delete button and other elements */
+}
+
+.delete-btn2:hover {
+    background-color: #d32f2f; /* Darker red on hover */
+}
+
+.delete-btn2:focus {
+    outline: none; /* Remove default focus outline */
+}
+
+/* Close button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close:hover {
+    color: black;
+}
+
+
+
+
+
+
+/*MODALS, INPUTS, BUTTONS AND TABLES*/
+
+/* MEDICAL SUPPLIES MODAL */
+.modal1 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.modal-content1 {
+    background-color: #fefefe;
+    margin: 4% auto; 
+    padding: 8px; 
+    border: 1px solid #000000;
+    width: 30%; 
+    max-height: 500px;
+    max-width: 800px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.modal-content1 label {
+    display: block; /* Makes labels block elements to ensure they appear on their own line */
+    margin-bottom: 1px; /* Space below each label */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Darker text color for better readability */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+/* Input styling specifically for inputs within the modal-content1 */
+.modal-content1 input[type="text"],
+.modal-content1 input[type="number"] {
+    margin-top: -3px;
+    padding: 5px;
+    margin-bottom: 1px;
+    border: 1px solid #000000; 
+    border-radius: 8px;
+    font-size: 16px;
+    width: 240px; 
+    margin-left:65px;
+}
+
+/* Submit button styling specifically for the modal */
+.modal-content1 input[type="submit"] {
+    background-color:  #368533; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Some padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top:-20px;
+    margin-left: 120px;
+}
+
+.modal-content1 input[type="submit"]:hover {
+    background-color: #2d6e2a; /* Darker green on hover */
+}
+
+.modal-content1 h3{
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Close button specifically inside modal-content1 */
+.modal-content1 .close {
+    color: #000000; /* Default color */
+    text-align: center;
+    font-size: 28px; /* Make the font bigger */
+    font-weight: bold; /* Make it bold */
+    cursor: pointer; /* Make it look clickable */
+    margin-right: 450px;
+    margin-top: 45px; /* Add some spacing to the right */
+}
+
+/* Change color on hover */
+.modal-content1 .close:hover,
+.modal-content1 .close:focus {
+    color: #f00; /* Red on hover */
+    text-decoration: none;
+}
+
+
+/* Heading (h2) styling */
+#medical_supplies-inventory h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styling for the search and add button container */
+#medical_supplies-inventory .search-and-add-container {
+    display: flex;
+    justify-content: space-between; /* Separate search and add button */
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Styling for the search bar container */
+#medical_supplies-inventory .search-container input {
+    padding: 10px;
+    width: 100%;
+    max-width: 600px; /* Limit the width of the search bar */
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: -2px;
+}
+
+/* Styling for the add button container */
+#medical_supplies-inventory .add-button-container button {
+    background-color:  #2d6e2a; /* Green button */
+    color: white; /* White text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 190px;
+    font-size: 16px;
+    margin-right: 0px;
+    margin-left:20px;
+    margin-top:5px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Add button hover effect */
+#medical_supplies-inventory .add-button-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Styling for the table container */
+#medical_supplies-inventory .table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-right: 190px;
+    max-height: 350px; /* Enable horizontal scrolling if the table is too wide */
+}
+
+/* Styling for the table */
+#medicalSuppliesTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+/* Styling for table headers */
+#medicalSuppliesTable th {
+    background-color: #2d6e2a; /* Green header background */
+    color: white;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    white-space: nowrap; /* Prevents text wrapping within the column */
+    overflow: hidden; /* Hides overflow if content exceeds column width */
+    text-overflow: ellipsis; /* Adds "..." if the text is too long for the column */
+    position: relative; /* Required for positioning the resizer */
+}
+
+/* Styling for table rows */
+#medicalSuppliesTable td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    color: #333;
+}
+
+/* Hover effect on table rows */
+#medicalSuppliesTable tr:hover {
+    background-color: #c0fce3; /* Light gray background on hover */
+}
+
+
+/* END OF MEDICAL SUPPLY*/
+
+/* MEDICINE INVENTORY */
+.modal2 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.modal-content2 {
+    background-color: #fefefe;
+    margin: 4% auto; 
+    padding: 8px; 
+    border: 1px solid #000000;
+    width: 30%; 
+    max-height: 900px;
+    max-width: 700px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.modal-content2 label {
+    text-align: center; /* Makes labels block elements to ensure they appear on their own line */
+    margin-bottom: 16px; /* Space below each label */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Darker text color for better readability */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+/* Input styling specifically for inputs within the modal-content1 */
+.modal-content2 input[type="text"],
+.modal-content2 input[type="number"],.modal-content2 input[type="date"]{
+    margin-top: -20px;
+    padding: 3px;
+    margin-bottom: 1px;
+    border: 1px solid #000000; 
+    border-radius: 8px;
+    font-size: 16px;
+    width: 240px; 
+    margin-left:65px;
+}
+
+/* Submit button styling specifically for the modal */
+.modal-content2 input[type="submit"] {
+    background-color:  #368533; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Some padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top:-20px;
+    margin-left: 120px;
+}
+
+.modal-content2 input[type="submit"]:hover {
+    background-color: #2d6e2a; /* Darker green on hover */
+}
+
+.modal-content2 h3{
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Close button specifically inside modal-content1 */
+.modal-content2 .close {
+    color: #000000; /* Default color */
+    text-align: center;
+    font-size: 28px; /* Make the font bigger */
+    font-weight: bold; /* Make it bold */
+    cursor: pointer; /* Make it look clickable */
+    margin-right: 450px;
+    margin-top: 45px; /* Add some spacing to the right */
+}
+
+/* Change color on hover */
+.modal-content2 .close:hover,
+.modal-content2 .close:focus {
+    color: #f00; /* Red on hover */
+    text-decoration: none;
+}
+
+
+/* Heading (h2) styling */
+#medicine-inventory h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styling for the search and add button container */
+/* Container styling for search bar and add button */
+#medicine-inventory .search-and-add-container {
+    display: flex;
+    justify-content: space-between; /* Keeps the search bar on the left and the add button on the right */
+    align-items: center; /* Vertically center the items */
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Styling for the search bar container */
+#medicine-inventory .search-container input {
+    padding: 10px;
+    width: 100%;
+    max-width: 1000px; /* Adjust this value based on your layout */
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
+
+/* Styling for the add button container */
+#medicine-inventory .add-button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button inside the container to the right */
+}
+
+#medicine-inventory .add-button-container button {
+    background-color: #2d6e2a; /* Green button */
+    color: white; /* White text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    max-width: 200px; /* Limit the button width */
+    font-size: 16px;
+    margin-left: 20px;
+    margin-top: 5px;
+    margin-right: -60px;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Add button hover effect */
+#medicine-inventory .add-button-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Styling for the table container */
+#medicine-inventory .table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-right: 150px;
+    max-height: 350px; /* Enable horizontal scrolling if the table is too wide */
+}
+
+/* Styling for the table */
+#medTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures column width limitations are respected */
+}
+
+/* Styling for table headers */
+#medTable th {
+    background-color: #2d6e2a; /* Green header background */
+    color: white;
+    padding: 1px;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    white-space: nowrap; /* Prevents text wrapping within the column */
+    overflow: hidden; /* Hides overflow if content exceeds column width */
+    text-overflow: ellipsis; /* Adds "..." if the text is too long for the column */
+    position: relative; /* Required for positioning the resizer */
+}
+
+
+
+/* Styling for table rows */
+#medTable td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    color: #333;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflow if the content is too wide */
+    text-overflow: ellipsis; /* Adds "..." for overflowed content */
+}
+
+
+/* Hover effect on table rows */
+#medTable tr:hover {
+    background-color: #c0fce3; /* Light gray background on hover */
+}
+
+/* END OF MEDICINE INVENTORY*/
+
+
+
+
+/*PATIENT LIST*/
+
+.modal3 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.modal-content3 {
+    background-color: #fefefe;
+    margin: 4% auto; 
+    padding: 8px; 
+    border: 1px solid #000000;
+    width: 30%; 
+    max-height: 900px;
+    max-width: 700px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.modal-content3 label {
+    text-align: center; /* Makes labels block elements to ensure they appear on their own line */
+    margin-bottom: -20px; /* Space below each label */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Darker text color for better readability */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+/* Input styling specifically for inputs within the modal-content1 */
+.modal-content3 input[type="text"],
+.modal-content3 input[type="number"]{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 18px;
+}
+
+.modal-content3 input[type="date"]
+{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 18px;
+
+}
+
+.modal-content3 select{
+    width: 75%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 18px;
+
+
+}
+
+
+
+
+/* Submit button styling specifically for the modal */
+.modal-content3 input[type="submit"] {
+    background-color:  #368533; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Some padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top:-30px;
+    margin-left: 120px;
+}
+
+.modal-content3 input[type="submit"]:hover {
+    background-color: #2d6e2a; /* Darker green on hover */
+}
+
+.modal-content3 h3{
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Close button specifically inside modal-content1 */
+.modal-content3 .close {
+    color: #000000; /* Default color */
+    text-align: center;
+    font-size: 28px; /* Make the font bigger */
+    font-weight: bold; /* Make it bold */
+    cursor: pointer; /* Make it look clickable */
+    margin-right: 450px;
+    margin-top: 45px; /* Add some spacing to the right */
+}
+
+/* Change color on hover */
+.modal-content3 .close:hover,
+.modal-content3 .close:focus {
+    color: #f00; /* Red on hover */
+    text-decoration: none;
+}
+
+/* Heading (h2) styling */
+#patient-list h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styling for the search and add button container */
+
+/* Container styling for the dropdown */
+.filter-container {
+    flex: 1;
+    margin-right: -250px;
+    float: right;
+    margin-top: 2px;;
+}
+
+/* Styling for the dropdown */
+#categoryDropdown {
+    width: 100px; /* Set a specific width for the dropdown */
+    height: 40px; /* Set a specific height for the dropdown */
+    padding: 10px; /* Padding inside the dropdown */
+    border: 1px solid #000000; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size inside the dropdown */
+    background-color: #ffffff; /* White background */
+    background: url('dropdown-arrow.png') no-repeat right 10px center; /* Custom arrow image */
+    background-size: 16px; /* Adjust the size of the custom arrow */
+    appearance: none; /* Remove default dropdown arrow in some browsers */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Optional: Adding padding for the text inside the dropdown */
+#categoryDropdown option {
+    padding: 10px; /* Padding inside each option */
+}
+
+/* Adjusting the height of the dropdown options list */
+#categoryDropdown {
+    line-height: 1.5; /* Adjusts the spacing of the text */
+}
+
+/* Container styling for search bar and add button */
+#patient-list .search-and-add-container {
+    display: flex;
+    justify-content: space-between; /* Keeps the search bar on the left and the add button on the right */
+    align-items: center; /* Vertically center the items */
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Styling for the search bar container */
+#patient-list .search-container input {
+    padding: 10px;
+    width: 100%;
+    max-width: 1000px; /* Adjust this value based on your layout */
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-top: 11px;
+}
+
+/* Styling for the add button container */
+#patient-list .add-button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button inside the container to the right */
+}
+
+#patient-list .add-button-container button {
+    background-color: #2d6e2a; /* Green button */
+    color: white; /* White text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    max-width: 200px; /* Limit the button width */
+    font-size: 16px;
+    margin-left: 1px;
+    margin-top: 1px;
+    margin-right: -60px;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Add button hover effect */
+#patient-list .add-button-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Styling for the table container */
+#patientTable .table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-right: 150px;
+    max-height: 350px; /* Enable horizontal scrolling if the table is too wide */
+}
+
+/* Styling for the table */
+#patientTable {
+    width: 82%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures column width limitations are respected */
+}
+
+/* Styling for table headers */
+#patientTable th {
+    background-color: #2d6e2a; /* Green header background */
+    color: white;
+    padding: 1px;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    white-space: nowrap; /* Prevents text wrapping within the column */
+    overflow: hidden; /* Hides overflow if content exceeds column width */
+    text-overflow: ellipsis; /* Adds "..." if the text is too long for the column */
+    position: relative; /* Required for positioning the resizer */
+}
+
+
+
+/* Styling for table rows */
+#patientTable td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    color: #333;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflow if the content is too wide */
+    text-overflow: ellipsis; /* Adds "..." for overflowed content */
+}
+
+
+/* Hover effect on table rows */
+#patientTable tr:hover {
+    background-color: #c0fce3; /* Light gray background on hover */
+}
+
+
+/* END OF PATIENT LIST */
+
+
+
+
+/* PATIENT APPOINTMENT */
+
+.modal4 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.modal-content4 {
+    background-color: #fefefe;
+    margin: 4% auto; 
+    padding: 8px; 
+    border: 1px solid #000000;
+    width: 30%; 
+    max-height: 1200px;
+    max-width: 700px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.modal-content4 label {
+    text-align: center; /* Makes labels block elements to ensure they appear on their own line */
+    margin-bottom: -20px; /* Space below each label */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Darker text color for better readability */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+/* Input styling specifically for inputs within the modal-content1 */
+.modal-content4 input[type="text"],
+.modal-content4 input[type="number"]{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 18px;
+}
+
+.modal-content4 input[type="datetime-local"]
+{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 18px;
+
+}
+
+.modal-content4 select{
+    width: 73%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 18px;
+
+
+}
+
+
+
+
+/* Submit button styling specifically for the modal */
+.modal-content4 input[type="submit"] {
+    background-color:  #368533; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Some padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top:20px;
+    margin-left: 120px;
+}
+
+.modal-content4 input[type="submit"]:hover {
+    background-color: #2d6e2a; /* Darker green on hover */
+}
+
+.modal-content4 h3{
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Close button specifically inside modal-content1 */
+.modal-content4 .close {
+    color: #000000; /* Default color */
+    text-align: center;
+    font-size: 28px; /* Make the font bigger */
+    font-weight: bold; /* Make it bold */
+    cursor: pointer; /* Make it look clickable */
+    margin-right: 450px;
+    margin-top: 45px; /* Add some spacing to the right */
+}
+
+/* Change color on hover */
+.modal-content4 .close:hover,
+.modal-content4 .close:focus {
+    color: #f00; /* Red on hover */
+    text-decoration: none;
+}
+
+/* Heading (h2) styling */
+#patient-appointment h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styling for the search and add button container */
+
+/* Container styling for the dropdown */
+.filter-container {
+    flex: 1;
+    margin-right: -250px;
+    float: right;
+    margin-top: 2px;;
+}
+
+/* Styling for the dropdown */
+#categoryDropdown {
+    width: 100px; /* Set a specific width for the dropdown */
+    height: 40px; /* Set a specific height for the dropdown */
+    padding: 10px; /* Padding inside the dropdown */
+    border: 1px solid #000000; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Font size inside the dropdown */
+    background-color: #ffffff; /* White background */
+    background: url('dropdown-arrow.png') no-repeat right 10px center; /* Custom arrow image */
+    background-size: 16px; /* Adjust the size of the custom arrow */
+    appearance: none; /* Remove default dropdown arrow in some browsers */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Optional: Adding padding for the text inside the dropdown */
+#categoryDropdown option {
+    padding: 10px; /* Padding inside each option */
+}
+
+/* Adjusting the height of the dropdown options list */
+#categoryDropdown {
+    line-height: 1.5; /* Adjusts the spacing of the text */
+}
+
+/* Container styling for search bar and add button */
+#patient-appointment .search-and-add-container {
+    display: flex;
+    justify-content: space-between; /* Keeps the search bar on the left and the add button on the right */
+    align-items: center; /* Vertically center the items */
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Styling for the search bar container */
+#patient-appointment .search-container input {
+    padding: 10px;
+    width: 95%;
+    max-width: 1000px; /* Adjust this value based on your layout */
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-top: 11px;
+}
+
+/* Styling for the add button container */
+#patient-appointment  .add-button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button inside the container to the right */
+}
+
+#patient-appointment.add-button-container button {
+    background-color: #2d6e2a; /* Green button */
+    color: white; /* White text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    max-width: 200px; /* Limit the button width */
+    font-size: 16px;
+    margin-left: 1px;
+    margin-top: 1px;
+    margin-right: -40px;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Add button hover effect */
+#patient-appointment .add-button-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Styling for the table container */
+#appointmentsTable .table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-right: 150px;
+    max-height: 350px; /* Enable horizontal scrolling if the table is too wide */
+}
+
+/* Styling for the table */
+#appointmentsTable {
+    width: 73%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures column width limitations are respected */
+}
+
+/* Styling for table headers */
+#appointmentsTable th {
+    background-color: #2d6e2a; /* Green header background */
+    color: white;
+    padding: 1px;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    white-space: nowrap; /* Prevents text wrapping within the column */
+    overflow: hidden; /* Hides overflow if content exceeds column width */
+    text-overflow: ellipsis; /* Adds "..." if the text is too long for the column */
+    position: relative; /* Required for positioning the resizer */
+}
+
+
+
+/* Styling for table rows */
+#appointmentsTable td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    color: #333;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflow if the content is too wide */
+    text-overflow: ellipsis; /* Adds "..." for overflowed content */
+}
+
+
+/* Hover effect on table rows */
+#appointmentsTable tr:hover {
+    background-color: #c0fce3; /* Light gray background on hover */
+}
+
+/* END OF PATIENT APPOINTMENT */
+
+
+/* PATIENT MEDICATION */
+
+
+.modal5 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.modal-content5 {
+    background-color: #fefefe;
+    margin: 4% auto; 
+    padding: 12px; 
+    border: 1px solid #000000;
+    width: 100%; 
+    max-height: 1200px;
+    max-width: 500px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.modal-content5 label {
+    text-align: center; /* Makes labels block elements to ensure they appear on their own line */
+    margin-bottom: -10px; /* Space below each label */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Darker text color for better readability */
+    font-size: 16px; /* Adjust font size as needed */
+}
+
+/* Input styling specifically for inputs within the modal-content1 */
+.modal-content5 input[type="text"],
+.modal-content5 input[type="number"]{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 18px;
+}
+
+.modal-content5 input[type="datetime-local"]
+{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 18px;
+
+}
+
+.modal-content5 select{
+    width: 73%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 18px;
+
+
+}
+
+/* Submit button styling specifically for the modal */
+.modal-content5 input[type="submit"] {
+    background-color:  #368533; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Some padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top:20px;
+    margin-left: 175px;
+}
+
+.modal-content5 input[type="submit"]:hover {
+    background-color: #2d6e2a; /* Darker green on hover */
+}
+
+.modal-content5 h3{
+    text-align: center;
+    font-size: 20px;
+}
+
+/* Close button specifically inside modal-content1 */
+.modal-content5 .close {
+    color: #000000; /* Default color */
+    text-align: center;
+    font-size: 28px; /* Make the font bigger */
+    font-weight: bold; /* Make it bold */
+    cursor: pointer; /* Make it look clickable */
+    margin-right: 450px;
+    margin-top: 45px; /* Add some spacing to the right */
+}
+
+/* Change color on hover */
+.modal-content5 .close:hover,
+.modal-content5 .close:focus {
+    color: #f00; /* Red on hover */
+    text-decoration: none;
+}
+
+
+
+
+#addMedicationForm .delete-medicine-button{
+    background-color: #368533;       /* Red background to indicate delete action */
+    color: white;                    /* White text for contrast */
+    padding: 8px 16px;               /* Padding around the button */
+    border: none;                    /* Remove borders */
+    border-radius: 4px;              /* Rounded corners */
+    cursor: pointer;                 /* Pointer cursor for interactivity */
+    font-size: 14px;                 /* Slightly smaller font size for delete button */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+
+}
+
+#addMedicationForm .medicine-entry {
+    display: flex;                /* Enable flexbox layout */
+    align-items: center;           /* Vertically center the items */
+    justify-content: space-between; /* Spread items horizontally */
+    gap: 10px;                    /* Add some space between the elements */
+    margin-bottom: 5px;           /* Space between rows if multiple medicine entries are added */
+}
+
+
+#addMedicationForm .medicine-dropdown {
+    width: 100%;       /* Set width to 100% of its container */
+     /* Set the maximum width */
+}
+
+
+/* Styling for the Add Another Medicine button */
+#addMedicineButton {
+    background-color: #368533;        /* Green background */
+    color: white;                     /* White text */
+    padding: 10px 20px;               /* Padding for click area */
+    border: none;                     /* Remove default border */
+    border-radius: 4px;               /* Rounded corners */
+    font-size: 16px;                  /* Font size */
+    cursor: pointer;                  /* Pointer cursor on hover */
+    display: inline-block;            /* Keeps the button inline */
+    margin-top: 10px;                 /* Add space on top */
+    transition: background-color 0.3s ease; /* Smooth background change on hover */
+}
+
+/* Hover effect for the button */
+#addMedicineButton:hover {
+    background-color: #45a049;        /* Darker green when hovered */
+}
+
+/* Style for the container of each medicine entry */
+#medicineContainer .medicine-entry {
+    display: flex;                   /* Flexbox layout for horizontal alignment */
+    align-items: center;             /* Center vertically */
+    justify-content: space-between;  /* Space items across the row */
+    gap: 15px;                       /* Gap between the elements */
+    margin-bottom: 10px;             /* Space between rows */
+}
+
+/* Style for the medicine dropdown */
+#medicineContainer .medicine-dropdown {
+    width: 100%;                      /* Adjust width as needed */
+    padding: 8px;                    /* Padding inside the dropdown */
+    border: 1px solid #000000;          /* Light border for the dropdown */
+    border-radius: 4px;              /* Rounded corners */
+    font-size: 16px;                 /* Font size for readability */
+    background-color: #fff;          /* White background */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    width: 100%;       /* Set width to 100% of its container */
+    max-width: 500px; /* Subtle shadow */
+}
+
+/* Style for the amount input field */
+#medicineContainer .medicine-amount {
+    width: 100%;                      /* Narrow width for numerical input */
+    padding: 8px;                    /* Padding inside the input */
+    font-size: 16px;                 /* Font size */
+    border: 1px solid #000000;          /* Light border */
+    border-radius: 4px;              /* Rounded corners */
+    text-align: right;               /* Align text to the right */
+}
+
+/* Hidden input for storing original amount */
+#medicineContainer .original-amount {
+    display: none;                   /* Hide this field */
+}
+
+/* Style for the delete button */
+#medicineContainer .delete-btn {
+    background-color: #368533;       /* Red background to indicate delete action */
+    color: white;                    /* White text for contrast */
+    padding: 8px 16px;               /* Padding around the button */
+    border: none;                    /* Remove borders */
+    border-radius: 4px;              /* Rounded corners */
+    cursor: pointer;                 /* Pointer cursor for interactivity */
+    font-size: 14px;                 /* Slightly smaller font size for delete button */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for the delete button */
+#medicineContainer .delete-btn:hover {
+    background-color: #45a049;       /* Darker red on hover */
+}
+
+/* Styling for the labels inside the medicine entry */
+#medicineContainer label {
+    font-size: 16px;                 /* Set label font size */
+    margin-right: 1px;              /* Space between label and input */
+}
+
+
+
+#editMedicineContainer .medicine-entry {
+    display: flex; /* Flexbox layout for horizontal alignment */
+    align-items: center; /* Center vertically */
+    justify-content: space-between; /* Space items across the row */
+    gap: 10px; /* Space between the elements */
+    margin-bottom: 10px; /* Space between rows */
+}
+
+/* Style for Medicine Dropdown in Edit Modal */
+#editMedicineContainer .medicine-dropdown {
+    width: 100%;                      /* Adjust width as needed */
+    padding: 8px;                    /* Padding inside the dropdown */
+    border: 1px solid #000000;          /* Light border for the dropdown */
+    border-radius: 4px;              /* Rounded corners */
+    font-size: 16px;                 /* Font size for readability */
+    background-color: #fff;          /* White background */
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
+    width: 100%;       /* Set width to 100% of its container */
+    max-width: 500px; 
+}
+
+/* Style for Amount Input in Edit Modal */
+#editMedicineContainer .medicine-amount {
+    width: 100%;                      /* Narrow width for numerical input */
+    padding: 8px;                    /* Padding inside the input */
+    font-size: 16px;                 /* Font size */
+    border: 1px solid #000000;          /* Light border */
+    border-radius: 4px;              /* Rounded corners */
+    text-align: right;  
+    
+}
+
+/* Style for Delete Button */
+#editMedicineContainer .delete-btn2 {
+    background-color: #368533; /* Red background to indicate delete action */
+    color: white; /* White text */
+    padding: 8px 12px; /* Padding around the button */
+    border: none; /* Remove borders */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    font-size: 14px; /* Slightly smaller font size for delete button */
+    transition: background-color 0.3s ease;
+    margin-top: 25px; /* Smooth hover effect */
+}
+
+#editMedicineContainer .delete-btn2:hover {
+    background-color: #45a049; /* Darker red on hover */
+}
+
+/* Submit Button Styling */
+#editMedicationForm input[type="submit"] {
+    background-color:  #368533; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Some padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top:20px;
+    margin-left: 175px;
+}
+
+#editMedicationForm input[type="submit"]:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+
+#patient-med.search-and-add-container {
+    display: flex;
+    justify-content: space-between; /* Keeps the search bar on the left and the add button on the right */
+    align-items: center; /* Vertically center the items */
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/* Styling for the search bar container */
+#patient-med .search-container input {
+    padding: 10px;
+    width: 95%;
+    max-width: 1000px; /* Adjust this value based on your layout */
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-left: 0px;
+    margin-top: 11px;
+}
+
+/* Styling for the add button container */
+#patient-med  .add-button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the button inside the container to the right */
+}
+
+#patient-med.add-button-container button {
+    background-color: #2d6e2a; /* Green button */
+    color: white; /* White text */
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    max-width: 200px; /* Limit the button width */
+    font-size: 16px;
+    margin-left: 1px;
+    margin-top: 1px;
+    margin-right: -40px;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Add button hover effect */
+#patient-med .add-button-container button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Styling for the table container */
+#medicationtable .table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-right: 150px;
+    max-height: 350px; /* Enable horizontal scrolling if the table is too wide */
+}
+
+/* Styling for the table */
+#medicationtable {
+    width: 73%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures column width limitations are respected */
+}
+
+/* Styling for table headers */
+#medicationtable th {
+    background-color: #2d6e2a; /* Green header background */
+    color: white;
+    padding: 1px;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    white-space: nowrap; /* Prevents text wrapping within the column */
+    overflow: hidden; /* Hides overflow if content exceeds column width */
+    text-overflow: ellipsis; /* Adds "..." if the text is too long for the column */
+    position: relative; /* Required for positioning the resizer */
+}
+
+
+
+/* Styling for table rows */
+#medicationtable td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    color: #333;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflow if the content is too wide */
+    text-overflow: ellipsis; /* Adds "..." for overflowed content */
+}
+
+
+/* Hover effect on table rows */
+#medicationtable tr:hover {
+    background-color: #c0fce3; /* Light gray background on hover */
+}
+
+
+
+/* END OF PATIENT MEDICATION */
+
+
+
+
+
+
+
+
+
+
+
+/*SECTIONS*/
+
+#dashboard {
+    display: none;
+}
+
+#medical_supplies-inventory {
+    display: none;
+}
+
+#medicine-inventory {
+    display: none;
+}
+
+#patient-med{
+    display: none;
+}
+
+#patient-list {
+    display: none;
+}
+
+#archivelogs {
+    display: none;
+}
+
+#patient-appointment{
+    display: none;
+}
+
+
+
+/*DASHBOARD DESIGN*/
+
+
+#dashboard {
+    padding: 20px;
+    background-color: transparent;
+}
+
+
+.card-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    margin-top: 20px;
+    
+   
+}
+
+.card {
+    background-color: white;
+    border: 2px solid black; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100px;
+    text-align: center;
+   
+    
+}
+
+.card:hover {
+    transform: scale(1.05); 
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #368533;
+}
+
+.card p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+
+/* Upcoming Events Section */
+#upcoming-events {
+    background-color: transparent; /* White background for events section */
+    border-radius: 5px;
+    padding: 20px; /* Padding for the section */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px; /* Subtle shadow */
+}
+
+/* Event Card Container */
+.events-container {
+    display: flex; /* Use flexbox for layout */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical overflow */
+    white-space: nowrap; /* Prevent wrapping to a new line */
+    gap: 10px; /* Space between cards */
+    padding: 20px; /* Add some padding */
+    max-width: 100%; /* Ensure it doesn’t exceed container width */
+    max-height: 130px;
+    border: 2px solid rgb(0, 0, 0); /* Add a border for visibility */
+}
+
+/* Event Card Styles */
+.event-card {
+    flex: 0 0 auto; /* Prevent cards from shrinking or growing */
+    width: 50px;
+    height: 100px; /* Set a fixed width for each card */
+    padding: 5px; /* Add padding */
+    border: 2px solid #000000; /* Add border */
+    border-radius: 5px; /* Add border radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+    background-color: #f9f9f9; /* Light background for event cards */
+}
+
+/* RESIZING OF TABLE  */
+.resizer1 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    cursor: col-resize;
+    background-color: #00000000;
+}
+
+.resizer2 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    cursor: col-resize;
+    background-color: #00000000;
+}
+
+.resizer3 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    cursor: col-resize;
+    background-color: #00000000;
+}
+.resizer4 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    cursor: col-resize;
+    background-color: #00000000;
+}
+.resizer5 {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    cursor: col-resize;
+    background-color: #00000000;
+}
+
+
+/* HEALTH WORKER INFO */
+/* Health Worker Info Container */
+.healthworker-info {
+    font-size: 16px; /* Adjust font size as needed */
+    color: white; /* Set the text color to white */
+    margin: 5% auto;
+    text-align: center;                  /* Dark gray text color */
+}
+
+/* Health Worker Label */
+.healthworker-label {
+    font-weight: bold;                /* Bold text for the label */              /* Space between label and name */
+    color: #368533;                   /* Green color for the label */
+}
+
+/* Health Worker Name */
+.healthworker-name {
+    font-style: bold;               /* Italic style for the name */
+    color: #555;                      /* Slightly lighter gray for the name */
+}
+
+/* Optional: Add a background color and padding for emphasis */
+.healthworker-info {
+    background-color: #f9f9f9;  
+    border-color: #000000;     /* Light gray background */
+    padding: 5px;                   /* Padding around the content */
+    border-radius: 4px;              /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}

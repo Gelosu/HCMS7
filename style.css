@@ -1,0 +1,699 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    background-color: #FFFFEE;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    opacity: 0.05;
+    background: url('mary.jpg') center/45% no-repeat;
+}
+
+/* Header Styles */
+header {
+    background-color: #368533;
+    color: #f3efef;
+    text-align: left;
+    padding: 10px;
+    height: 40px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    
+}
+
+header h1 {
+    font-size: 25px;
+    margin: 0; /* Removed unnecessary margin */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #368533;
+    color: rgb(255, 255, 255);
+    text-align: center; /* Horizontally center the text */
+    padding: 8px; /* Padding for some vertical spacing */
+    height: 24px; /* Adjust height if necessary */
+    position: fixed;
+    bottom: 0; /* Fix it to the bottom of the viewport */
+    width: 100%; /* Make the footer span the entire width */
+    left: 0; /* Ensure it aligns to the left edge */
+    margin-bottom: 0px;
+    margin-left: 0px;
+    
+}
+
+/* Sidebar Styles */
+#sidebar {
+    position: fixed;
+    left: 0;
+    bottom: 0; /* Attach it to the bottom */
+    width: 150px;
+    background-color: #368533;
+    padding-top: 20px;
+    height: calc(100% - 30px); /* Adjust height relative to the window */
+    overflow-y: auto;
+}
+
+
+#sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar ul li {
+    padding: 10px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+#sidebar ul li:hover {
+    background-color: #1f3017;
+}
+
+#sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+/* Logo in Sidebar */
+#logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#logo img {
+    width: 100px;
+}
+
+/* Main Content */
+#content {
+    margin-left: 160px;
+    padding: 20px;
+    overflow: auto; /* Adds scrolling if content exceeds viewport height */
+}
+
+.table-container {
+    width: 100%;        /* Adjust as needed */
+    max-height: 400px;  /* Adjust the height as needed */
+    overflow-y: auto;   /* Enables vertical scrollbar */
+    border: 1px solid #ddd; /* Optional border for the container */
+}
+
+.styled-table {
+    width: 100%; 
+    border-collapse: collapse;
+    font-size: 15px;
+    text-align: left;
+    margin-left: 200px;
+    overflow-y: auto;
+    margin-top:5px;
+    max-width: 1000px;
+    max-height: 100px;
+}
+
+.styled-table th, .styled-table td {
+    padding: 5px 5px;
+    border: 1px solid #000000;
+    width: fit-content;
+   
+}
+
+.styled-table th {
+    background-color: #368533;
+    color: white;
+    
+
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.styled-table tr:hover {
+    background-color: #e2e2e2;
+}
+
+/* Action Buttons in Table */
+table td a img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+table td a img:hover {
+    transform: scale(1.2);
+}
+
+/* Add Button Container */
+.add-button-container {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-left: 200px;
+    margin-top:100px;
+}
+
+.add-button-container2 {
+    text-align: left;
+    margin-bottom: 20px;
+    margin-right: 125px;
+    margin-top:90px;
+}
+
+.add-button-container2 button {
+    background-color: #368533;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-button-container2 button:hover {
+    background-color: #2d6e2a;
+}
+
+.add-button-container button {
+    background-color: #368533;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.add-button-container button:hover {
+    background-color: #2d6e2a;
+}
+
+ /* Search and Add Container */
+ .search-and-add-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    flex: 1;
+}
+
+#searchInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    width: 66%;
+    margin-left: 200px;
+    margin-top: 74px;
+   
+}
+
+
+
+        /* Filter Container */
+        .filter-container {
+            display: flex; /* Align the dropdown with any other items horizontally if needed */
+            justify-content: flex-start; /* Align the dropdown to the left */
+            margin-bottom: 7px;
+            margin-left: -50px;
+            margin-top: 80px;
+            margin-right: 5px;
+            gap:10px; /* Add space below the filter container */
+        }
+        
+        /* Dropdown Styles */
+        #categoryDropdown {
+            padding: 10px; /* Add padding for a larger click area */
+            font-size: 16px; /* Increase font size for readability */
+            border: 1px solid #000000; /* Add border */
+            border-radius: 5px; 
+            background-color: #f9f9f9; /* Set background color */
+            width: 100px; /* Set width of dropdown */
+            cursor: pointer; /* Show pointer on hover */
+            transition: border 0.3s ease; /* Smooth transition for border color on focus */
+        }
+        
+        /* Dropdown hover and focus styles */
+        #categoryDropdown:hover {
+            border: 1px solid #368533; /* Change border color on hover */
+        }
+        
+        #categoryDropdown:focus {
+            outline: none; /* Remove default focus outline */
+            border: 1px solid #368533; /* Add custom border on focus */
+        }
+        
+        /* Option Styles (optional, browser-dependent) */
+        #categoryDropdown option {
+            padding: 10px; /* Add padding for the options inside the dropdown */
+        }
+
+        #yearDropdown {
+            padding: 10px; /* Add padding for a larger click area */
+            font-size: 16px; /* Increase font size for readability */
+            border: 1px solid #000000; /* Add border */
+            border-radius: 5px; 
+            background-color: #f9f9f9; /* Set background color */
+            width: 100px; /* Set width of dropdown */
+            cursor: pointer; /* Show pointer on hover */
+            transition: border 0.3s ease; /* Smooth transition for border color on focus */
+        }
+        
+        /* Dropdown hover and focus styles */
+        #yearDropdown:hover {
+            border: 1px solid #368533; /* Change border color on hover */
+        }
+        
+        #yearDropdown:focus {
+            outline: none; /* Remove default focus outline */
+            border: 1px solid #368533; /* Add custom border on focus */
+        }
+        
+        /* Option Styles (optional, browser-dependent) */
+        #yearDropdown option {
+            padding: 10px; /* Add padding for the options inside the dropdown */
+        }
+
+
+/* Modal Styles */
+
+.modal1 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.modal-content1 {
+    background-color: #fefefe;
+    margin: 4% auto; 
+    padding: 10px; 
+    border: 1px solid #000000;
+    width: 100%; 
+    max-height: 550px;
+    max-width: 300px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.modal-content1 label {
+    text-align: center; /* Makes labels block elements to ensure they appear on their own line */
+    margin-bottom: -50px; /* Space below each label */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Darker text color for better readability */
+    font-size: 16px; 
+    margin-left: 110px;/* Adjust font size as needed */
+}
+
+/* Input styling specifically for inputs within the modal-content1 */
+.modal-content1 input[type="text"],
+.modal-content1 input[type="number"],.modal-content1 input[type="password"]{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left: 30px;
+
+}
+
+.modal-content1 input[type="datetime-local"]
+{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 18px;
+
+}
+
+.modal-content1 select{
+    width: 73%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 18px;
+
+
+}
+
+/* Submit button styling specifically for the modal */
+.modal-content1 input[type="submit"] {
+    background-color:  #368533; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Some padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top:-20px;
+    margin-left: 78px;
+}
+
+
+
+.modal-content1 input[type="submit"]:hover {
+    background-color: #2d6e2a; /* Darker green on hover */
+}
+
+
+
+.modal-content1 h3{
+    text-align: center;
+    font-size: 20px;
+    margin-top: -20px;
+}
+
+/* Close button specifically inside modal-content1 */
+.modal-content1 .close {
+    color: #000000; /* Default color */
+    text-align: center;
+    font-size: 28px; /* Make the font bigger */
+    font-weight: bold; /* Make it bold */
+    cursor: pointer; /* Make it look clickable */
+    margin-left: 250px;
+    margin-top: 45px; /* Add some spacing to the right */
+}
+
+/* Change color on hover */
+.modal-content1 .close:hover,
+.modal-content1 .close:focus {
+    color: #f00; /* Red on hover */
+    text-decoration: none;
+}
+
+
+/* EVENT */
+
+
+/* Modal Styles */
+
+.modal2 {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.4); 
+}
+
+
+.modal-content2 {
+    background-color: #fefefe;
+    margin: 4% auto; 
+    padding: 10px; 
+    border: 1px solid #000000;
+    width: 100%; 
+    max-height: 550px;
+    max-width: 300px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.modal-content2 label {
+    text-align: center;
+    margin-bottom: -30px; /* Space below each label */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Darker text color for better readability */
+    font-size: 16px;
+    margin-left: 100px; /* Adjust font size as needed */
+}
+
+.modal-content2 label2 {
+    text-align: center;
+    margin-bottom: -30px; /* Space below each label */
+    font-weight: bold; /* Bold text for labels */
+    color: #333; /* Darker text color for better readability */
+    font-size: 16px;
+    margin-left: 75px; /* Adjust font size as needed */
+}
+
+/* Input styling specifically for inputs within the modal-content1 */
+.modal-content2 input[type="text"],
+.modal-content2 input[type="number"],.modal-content1 input[type="password"]{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-top: 27px;
+    margin-left: 35px;
+
+}
+
+.modal-content2 textarea
+{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 35px;
+    margin-top: 18px;
+    height: 80px;           
+    resize: none;
+
+}
+
+.modal-content2 input[type="datetime-local"]
+{
+    width: 70%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 35px;
+    margin-top: 18px;
+
+}
+
+
+.modal-content2 select{
+    width: 73%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-left: 50px;
+    margin-top: 18px;
+
+
+}
+
+/* Submit button styling specifically for the modal */
+.modal-content2 input[type="submit"] {
+    background-color:  #368533; /* Green background */
+    color: white; /* White text */
+    padding: 14px 20px; /* Some padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top:-20px;
+    margin-left: 90px;
+}
+
+.modal-content2 input[type="submit"]:hover {
+    background-color: #2d6e2a; /* Darker green on hover */
+}
+
+.modal-content2 h3{
+    text-align: center;
+    font-size: 20px;
+    margin-top: -20px;
+}
+
+/* Close button specifically inside modal-content1 */
+.modal-content2 .close {
+    color: #000000; /* Default color */
+    text-align: center;
+    font-size: 28px; /* Make the font bigger */
+    font-weight: bold; /* Make it bold */
+    cursor: pointer; /* Make it look clickable */
+    margin-left: 250px;
+    margin-top: 45px; /* Add some spacing to the right */
+}
+
+/* Change color on hover */
+.modal-content2 .close:hover,
+.modal-content2 .close:focus {
+    color: #f00; /* Red on hover */
+    text-decoration: none;
+}
+
+/* Styling for the table container */
+#usersTable .table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-right: 150px;
+    max-height: 350px; /* Enable horizontal scrolling if the table is too wide */
+}
+
+/* Styling for the table */
+#usersTable {
+    width: 73%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures column width limitations are respected */
+}
+
+/* Styling for table headers */
+#usersTable th {
+    background-color: #368533; /* Green header background */
+    color: white;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    white-space: nowrap; /* Prevents text wrapping within the column */
+    overflow: hidden; /* Hides overflow if content exceeds column width */
+    text-overflow: ellipsis; /* Adds "..." if the text is too long for the column */
+    position: relative;
+    text-align: center;
+    align-items: center; /* Required for positioning the resizer */
+}
+
+
+
+/* Styling for table rows */
+#usersTable td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    color: #333;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflow if the content is too wide */
+    text-overflow: ellipsis; /* Adds "..." for overflowed content */
+}
+
+
+/* Hover effect on table rows */
+#usersTable tr:hover {
+    background-color: #c0fce3; /* Light gray background on hover */
+}
+
+
+
+/* Styling for the table container */
+#eventsTable .table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    margin-right: 150px;
+    max-height: 350px; /* Enable horizontal scrolling if the table is too wide */
+}
+
+/* Styling for the table */
+#eventsTable {
+    width: 73%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Ensures column width limitations are respected */
+}
+
+/* Styling for table headers */
+#eventsTable th {
+    background-color: #368533; /* Green header background */
+    color: white;
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid #000000;
+    white-space: nowrap; /* Prevents text wrapping within the column */
+    overflow: hidden; /* Hides overflow if content exceeds column width */
+    text-overflow: ellipsis; /* Adds "..." if the text is too long for the column */
+    position: relative;
+    text-align: center;
+    align-items: center; /* Required for positioning the resizer */
+}
+
+
+
+/* Styling for table rows */
+#eventsTable td {
+    padding: 10px;
+    border-bottom: 1px solid #000000;
+    color: #333;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hides overflow if the content is too wide */
+    text-overflow: ellipsis; /* Adds "..." for overflowed content */
+}
+
+
+/* Hover effect on table rows */
+#eventsTable tr:hover {
+    background-color: #c0fce3; /* Light gray background on hover */
+}
+
+
+
+
+
+/* Logout Button */
+.logout-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsiveness */
+@media screen and (max-width: 768px) {
+    #sidebar {
+        width: 120px;
+    }
+
+    #content {
+        margin-left: 140px;
+    }
+
+    .modal-content {
+        width: 90%; /* Make modals more responsive */
+    }
+}
+
+
